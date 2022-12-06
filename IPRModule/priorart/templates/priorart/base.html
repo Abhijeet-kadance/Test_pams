@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prior Art Form</title>
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+</head>
+<body>
+<h2 class="text-center">Prior Art Search</h2>
+<div class="container">
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="row">
+      <div class="col-12">
+        <label>Invention Title <span class="text-danger">*</span></label>
+        <div class = "form-group">
+          {{ form.IPR_prior_art_invention_title }}
+          {{ form.IPR_prior_art_invention_title.errors }}
+        </div>
+      </div>
+
+      <div class="col-12">
+        <label>Invention_description <span class="text-danger">*</span></label>
+        <div class = "form-group">
+          {{ form.IPR_prior_art_Invention_description }}
+        </div>
+      </div>
+
+      <div class="col-12">
+        <label>Applicant Name <span class="text-danger">*</span></label>
+        <div class = "form-group">
+          {{ form.IPR_prior_art_applicant_name }}
+        </div>
+      </div>
+
+      <div class="col-12">
+        <label>Inventor Name<span class="text-danger">*</span></label>
+        <div class = "form-group">
+          {{ form.IPR_prior_art_inventor_name }}
+        </div>
+      </div>
+
+      <div class="col-12">
+        <label>Keywords <span class="text-danger">*</span></label>
+        <div class = "form-group">
+          {{ form.IPR_prior_art_keywords }}
+        </div>
+      </div>
+      <div class="col-12">
+        <label>Upload Document <span class="text-danger">*</span></label>
+        <div class = "form-group">
+          {{ form.IPR_prior_art_uploaded_doc_name }}
+        </div>
+      </div>
+
+      <div class="col-md-12">
+        <input class="btn btn-primary" type="submit" value="Register"/>
+      </div>
+
+    </div>
+    
+    
+    {% for message in messages %}
+        <p>{{ message }}</p>
+    {% endfor %} 
+    
+    {% comment %} <button type="submit">Upload</button> {% endcomment %}
+  </form>
+</div>
+  <script>
+    function addApplicant(){
+
+      var applicantName = document.getElementsById('applicant_name').value;
+      console.log(applicantName)
+    }
+  </script>
+
+</body>
+</html>
